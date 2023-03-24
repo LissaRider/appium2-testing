@@ -57,7 +57,8 @@ public class IT_Edition018_Espresso_Test {
                 ExpectedConditions.visibilityOfElementLocated(username);
 
         try {
-            wait.until(loginScreenReady).click();
+            Thread.sleep(3000);
+            driver.findElement(loginScreen).click();
             driver.findElement(username).sendKeys("alice");
             driver.findElement(password).sendKeys("mypassword");
             driver.findElement(loginBtn).click();
@@ -66,15 +67,16 @@ public class IT_Edition018_Espresso_Test {
             wait.until(usernameReady);
             driver.terminateApp(APP_PACKAGE, new AndroidTerminateApplicationOptions().withTimeout(Duration.ofSeconds(30)));
 //                        driver.closeApp();
-            System.out.println(driver.queryAppState(ApplicationState.NOT_RUNNING.name()));
-            Thread.sleep(5000);
+//            System.out.println(driver.queryAppState(ApplicationState.NOT_RUNNING.name()));
+//            Thread.sleep(5000);
             driver.activateApp(APP_PACKAGE);
 //                        driver.startActivity(new Activity(APP_PACKAGE, APP_ACTIVITY));
 //
 //            driver.launchApp();
-            Thread.sleep(5000);
-            System.out.println(driver.getPageSource());
-            wait.until(loginScreenReady).click();
+//            Thread.sleep(5000);
+//            System.out.println(driver.getPageSource());
+            Thread.sleep(3000);
+            driver.findElement(loginScreen).click();
             driver.findElement(username).sendKeys("alice");
             driver.findElement(password).sendKeys("mypassword");
             driver.findElement(loginBtn).click();
